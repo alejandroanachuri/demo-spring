@@ -22,6 +22,7 @@ public class RepositoryController {
     @Autowired
     TutorialRepository tutorialRepository;
 
+    @CrossOrigin
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials() {
         List<Tutorial> tutorials = new ArrayList<>();
@@ -29,6 +30,7 @@ public class RepositoryController {
         return new ResponseEntity<>(tutorials, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @PostMapping("/tutorials")
     public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
         Tutorial newTutorial = tutorialRepository.save(tutorial);
